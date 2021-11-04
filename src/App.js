@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+  const [tarefa, setTarefa] = useState("");
+  const [lista, setLista] = useState([]);
+
+  function handleChange(event) {
+    const input = event.target.value;
+
+    setTarefa(input);
+  }
+
+  function handleAdd(event) {
+    event.preventDefault();
+
+    setLista([...lista, tarefa]);
+    setTarefa("");
+  }
+
+
   return (
     <>
       <h1>
@@ -8,12 +25,12 @@ function App() {
       </h1>
 
       <form>
-        <input type="text" />
-        <button type="submit">Adcionar Tarefa</button>
+        <input type="text" onChange={handleChange} value={tarefa} />
+        <button type="submit" onClick={handleAdd}>Adcionar Tarefa</button>
       </form>
 
       <ul>
-        <li>tarefa</li>
+        {lista.map(item => (<li>{item}</li>))}
       </ul>
     </>
   );
