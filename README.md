@@ -2,7 +2,7 @@
 
 ## Description
 
-Criar um aplicativo de lista de tarefas para ajudar na organização da empresa Ebytr.
+Create a to-do list application to help organize the Ebytr company.
 
 ## Install and Run
 
