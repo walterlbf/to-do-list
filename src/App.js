@@ -13,8 +13,15 @@ function App() {
   function handleAdd(event) {
     event.preventDefault();
 
-    setLista([...lista, tarefa]);
-    setTarefa("");
+    if (tarefa) {
+      setLista([...lista, tarefa]);
+      setTarefa("");
+    }
+  }
+
+  function deletaTarefa(event) {
+
+    console.log(event.target);
   }
 
 
@@ -30,7 +37,7 @@ function App() {
       </form>
 
       <ul>
-        {lista.map(item => (<li>{item}</li>))}
+        {lista.map(item => (<li>{item} <button onClick={deletaTarefa}>deletar</button></li>))}
       </ul>
     </>
   );
